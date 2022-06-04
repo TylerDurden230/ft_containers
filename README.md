@@ -8,4 +8,4 @@ direttamente o tramite iteratori (oggetti di riferimento con proprietà simili a
 
 In questo progetto sono stati implementati 3 containers:
 
-<strong>Vector</strong>
+<strong><h3>Vector</h3></strong>
