@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <map>
 #include <deque>
 #include <vector>
 #include "../sources/map.hpp"
@@ -52,7 +53,7 @@ int main(int ac, char**av)
     ft::vector<int> fv(x, x);
 
     std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
-	std::cout << "|                                          VECTOR                                          |" << std::endl;
+	std::cout << "|                                          VECTOR                                           |" << std::endl;
 	std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
 
     std::cout << MAGENTA << "CAPACITY" << RESET << std::endl;
@@ -80,6 +81,31 @@ int main(int ac, char**av)
     fv.assign(10,11);
     print_vector(sv);
     print_vector(fv);
+    std::cout << YELLOW << "push_back(1111)"  RESET << std::endl;
+    sv.push_back(1111);
+    fv.push_back(1111);
+    print_vector(sv);
+    print_vector(fv);
+    std::cout << YELLOW << "pop_back()"  RESET << std::endl;
+    sv.pop_back();
+    fv.pop_back();
+    print_vector(sv);
+    print_vector(fv);
+    std::cout << YELLOW << "clear()"  RESET << std::endl;
+    fv.clear();
+    sv.clear();
+    std::cout << "Std size: " << sv.size() << std::endl;  std::cout << "Ft size: " << fv.size() << std::endl;
+    std::cout << "Std capacity: " << sv.capacity() << std::endl;  std::cout << "Ft capacity: " << fv.capacity() << std::endl;
+    std::cout << YELLOW << "insert(vector.begin(), 10, 12)"  RESET << std::endl;
+    sv.insert(sv.begin(), 10, 12);
+    fv.insert(fv.begin(), 10, 12);
+    print_vector(sv);
+    print_vector(fv);
+    std::cout << YELLOW << "erase(vector.begin(), vector.begin()+ 3)"  RESET << std::endl;
+    sv.erase(sv.begin(), sv.begin()+ 3);
+    fv.erase(fv.begin(), fv.begin()+ 3);
+    print_vector(sv);
+    print_vector(fv);
 
     std::cout << std::endl;
     std::cout << MAGENTA << "ELEMENT ACCESS" << RESET << std::endl;
@@ -92,4 +118,24 @@ int main(int ac, char**av)
     std::cout << YELLOW << "front()"  RESET << std::endl;
     std::cout << "std:vector.front(): " << sv.front() << std::endl;
     std::cout << "ft:vector.front(): " << fv.front() << std::endl;
+    std::cout << YELLOW << "back()"  RESET << std::endl;
+    std::cout << YELLOW << "a little push_back first...42"  RESET << std::endl;
+    sv.push_back(42);
+    fv.push_back(42);
+    print_vector(sv);
+    print_vector(fv);
+    std::cout << "std:vector.back(): " << sv.back() << std::endl;
+    std::cout << "ft:vector.back(): " << fv.back() << std::endl;
+
+
+    std::cout << std::endl;
+    std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
+	std::cout << "|                                          MAP                                              |" << std::endl;
+	std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
+
+    std::map<int, std::string> smap;
+	ft::map<int, std::string> fmap;
+	ft::map<int, std::string>::iterator fit;
+	std::map<int, std::string>::iterator sit;
+
 }
