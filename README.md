@@ -15,5 +15,8 @@ Questo array potrebbe aver bisogno di essere riassegnato per crescere di dimensi
 Questo è un compito relativamente costoso in termini di tempo di elaborazione, per questo motivo il vettore potrà allocare un po' di spazio in più per adattarsi alla possibile crescita, e quindi avere una capacità effettiva maggiore dello spazio di archiviazione strettamente necessario per contenere i suoi elementi.
 
 <strong><h3>Stack</h3></strong>
+Gli Stack sono tipi di container definiti come LIFO (last-in first-out), dove gli elementi sono inseriti ed estratti soltanto dalla fine del container.
+Lo stack é basato sul vettore del quale inibisce alcune funzionalità e ne specializza delle altre per le sue necessità.
+
 
 <strong><h3>Map</h3></strong>
