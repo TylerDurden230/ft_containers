@@ -138,4 +138,14 @@ int main(int ac, char**av)
 	ft::map<int, std::string>::iterator fit;
 	std::map<int, std::string>::iterator sit;
 
+    sit = smap.begin();
+    fit = fmap.begin();
+
+    std::cout << std::endl;
+    std::cout << MAGENTA << "MODIFIERS" << RESET << std::endl;
+    std::cout << YELLOW << "insert(const value_type& val)"  RESET << std::endl;    
+    smap.insert(std::make_pair(11, "eleven"));
+    fmap.insert(ft::make_pair(11, "eleven"));
+    std::cout << smap.at(11) << std::endl;
+    std::cout << fmap.at(11) << std::endl;
 }
