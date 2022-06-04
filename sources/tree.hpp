@@ -496,7 +496,7 @@ class Tree {
 
 		pointer insert(pointer node, const Pair &pair)
 		{
-			pointer parent, entry, tmp;
+			pointer parent, entry;
 
 			entry = newNode(pair);
 			parent = nullptr;
