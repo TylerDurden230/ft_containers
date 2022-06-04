@@ -9,4 +9,6 @@ direttamente o tramite iteratori (oggetti di riferimento con proprietà simili a
 In questo progetto sono stati implementati 3 containers:
 
 <strong><h3>Vector</h3></strong>
-Il vettore rappresenta una versione evoluta dell'array del C, infatti al contrario di esso non ha una capacità massima prefissata in tempo di compilazione, ma si espande durante l'esecuzione a seconda delle necessità., per questo viene definito come <strong>array dinamico</strong>.
+Container di dati molto simile all'array, infatti porprio come questo, anche il vettore immagazzina in maniera contigua i suoi elementi.
+Il vettore rappresenta però una versione evoluta dell'array del C, infatti al contrario di esso non ha una capacità massima prefissata in tempo di compilazione, ma si espande durante l'esecuzione a seconda delle necessità e per questo viene definito come <strong>array dinamico</strong>.
+
