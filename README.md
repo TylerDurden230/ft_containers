@@ -14,3 +14,6 @@ Il vettore rappresenta però una versione evoluta dell'array del C, infatti al c
 Questo array potrebbe aver bisogno di essere riassegnato per crescere di dimensioni quando vengono inseriti nuovi elementi, il che implica l'allocazione di un nuovo array e lo spostamento di tutti gli elementi ad esso. 
 Questo è un compito relativamente costoso in termini di tempo di elaborazione, per questo motivo il vettore potrà allocare un po' di spazio in più per adattarsi alla possibile crescita, e quindi avere una capacità effettiva maggiore dello spazio di archiviazione strettamente necessario per contenere i suoi elementi.
 
+<strong><h3>Stack</h3></strong>
+
+<strong><h3>Map</h3></strong>
