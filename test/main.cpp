@@ -52,7 +52,7 @@ int main(int ac, char**av)
     std::vector<int> sv(x, x);
     ft::vector<int> fv(x, x);
 
-    std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
+   	std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
 	std::cout << "|                                          VECTOR                                           |" << std::endl;
 	std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
 
@@ -128,12 +128,12 @@ int main(int ac, char**av)
     std::cout << "ft:vector.back(): " << fv.back() << std::endl;
 
 
-    std::cout << std::endl;
-    std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
+   	std::cout << std::endl;
+    	std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
 	std::cout << "|                                          MAP                                              |" << std::endl;
 	std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
 
-    std::map<int, std::string> smap;
+    	std::map<int, std::string> smap;
 	ft::map<int, std::string> fmap;
 	ft::map<int, std::string>::iterator fit;
 	std::map<int, std::string>::iterator sit;
