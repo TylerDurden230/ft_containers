@@ -18,7 +18,6 @@ Questo è un compito relativamente costoso in termini di tempo di elaborazione, 
 Gli Stack sono tipi di container definiti come LIFO (last-in first-out), dove gli elementi sono inseriti ed estratti soltanto dalla fine del container.
 Lo stack é basato sul vettore del quale inibisce alcune funzionalità e ne specializza delle altre per le sue necessità.
 
-
 <strong><h3>Map</h3></strong>
 Le mappe sono contenitori associativi che memorizzano elementi formati da una combinazione di un valore chiave e un valore mappato, seguendo un ordine specifico.
 In una mappa, i valori chiave vengono generalmente utilizzati per ordinare e identificare in modo univoco gli elementi, mentre i valori mappati memorizzano il contenuto associato a questa chiave. I tipi di chiave e di valore mappato possono differire e sono raggruppati insieme nel tipo di elemento value_type, che è un tipo <strong><a href="https://www.cplusplus.com/reference/utility/pair/" target="_blank">Pair</a></strong> che combina entrambi.<br>
