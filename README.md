@@ -10,7 +10,7 @@ In questo progetto sono stati implementati 3 containers:
 
 <strong><h3>Vector</h3></strong>
 Container di dati molto simile all'array, infatti porprio come questo, anche il vettore immagazzina in maniera contigua i suoi elementi.<br>
-Il vettore rappresenta però una versione evoluta dell'array del C, infatti al contrario di esso, non ha una capacità massima prefissata in tempo di compilazione, ma si espande durante l'esecuzione a seconda delle necessità e per questo viene definito come <strong>array dinamico</strong>.
+Il vettore rappresenta però una versione evoluta dell'array del C, infatti al contrario di esso, non ha una capacità massima prefissata in tempo di compilazione, ma si espande durante l'esecuzione a seconda delle necessità e per questo viene definito come <strong><a href="https://www.geeksforgeeks.org/how-do-dynamic-arrays-work/">array dinamico</a></strong>.
 Questo array potrebbe aver bisogno di essere riassegnato per crescere di dimensioni quando vengono inseriti nuovi elementi, il che implica l'allocazione di un nuovo array e lo spostamento di tutti gli elementi ad esso. 
 Questo è un compito relativamente costoso in termini di tempo di elaborazione, per questo motivo il vettore potrà allocare un po' di spazio in più per adattarsi alla possibile crescita, e quindi avere una capacità effettiva maggiore dello spazio di archiviazione strettamente necessario per contenere i suoi elementi.
 
