@@ -25,3 +25,4 @@ In una mappa, i valori chiave vengono generalmente utilizzati per ordinare e ide
 <code>typedef pair<const Key, T> value_type;</code>
   
 Internamente, gli elementi di una mappa sono sempre ordinati in base alla sua chiave seguendo un criterio di ordinamento specifico e rigoroso indicato dal suo oggetto di confronto interno (Compare), il quale, se non viene specificato, di default è <strong><a href="https://www.cplusplus.com/reference/functional/less/" >std::less</a></strong>, in base al quale gli elementi vengono ordinati in modo crescente.
+Le mappe sono tipicamente implementate come alberi di ricerca binari
