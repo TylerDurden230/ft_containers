@@ -21,7 +21,7 @@ Lo stack é basato sul vettore del quale inibisce alcune funzionalità e ne spec
 
 <strong><h3>Map</h3></strong>
 Le mappe sono contenitori associativi che memorizzano elementi formati da una combinazione di un valore chiave e un valore mappato, seguendo un ordine specifico.
-In una mappa, i valori chiave vengono generalmente utilizzati per ordinare e identificare in modo univoco gli elementi, mentre i valori mappati memorizzano il contenuto associato a questa chiave. I tipi di chiave e di valore mappato possono differire e sono raggruppati insieme nel tipo di elemento value_type, che è un tipo <strong>Pair</strong> che combina entrambi.<br>
+In una mappa, i valori chiave vengono generalmente utilizzati per ordinare e identificare in modo univoco gli elementi, mentre i valori mappati memorizzano il contenuto associato a questa chiave. I tipi di chiave e di valore mappato possono differire e sono raggruppati insieme nel tipo di elemento value_type, che è un tipo <strong><a href="https://www.cplusplus.com/reference/utility/pair/">Pair</a></strong> che combina entrambi.<br>
 <code>typedef pair<const Key, T> value_type;</code>
   
- Internamente, gli elementi di una mappa sono sempre ordinati in base alla sua chiave seguendo un criterio di ordinamento specifico e rigoroso indicato dal suo oggetto di confronto interno (Compare), il quale, se non viene specificato, di default è <a href="https://www.cplusplus.com/reference/functional/less/" >std::less</a>, in base al quale gli elementi vengono ordinati in modo crescente.
+Internamente, gli elementi di una mappa sono sempre ordinati in base alla sua chiave seguendo un criterio di ordinamento specifico e rigoroso indicato dal suo oggetto di confronto interno (Compare), il quale, se non viene specificato, di default è <strong><a href="https://www.cplusplus.com/reference/functional/less/" >std::less</a></strong>, in base al quale gli elementi vengono ordinati in modo crescente.
