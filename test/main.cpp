@@ -16,6 +16,7 @@
 # define BLUE			"\033[34m"				/* Blue */
 # define MAGENTA		"\033[35m"				/* Magenta */
 # define CYAN			"\033[36m"				/* Cyan */
+# define ROJO			"\033[31m"
 
 template <class T>
 void print_vector(std::vector<T> &vector)
@@ -41,37 +42,73 @@ void print_vector(ft::vector<T> &vector)
     std::cout << "ft Vector capacity: "<< vector.capacity() << std::endl;
 }
 
+/* --- Map -- */
+
 template <class T, class U>
-void printMap(std::map<T, U> &map)
+void isEmpty(std::map<T, U> &map)
+{
+    map.empty() ? std::cout << ROJO << "Map is empty" << RESET << std::endl : std::cout << GREEN << "Map is not empty." << RESET << std::endl ;
+}
+
+template <class T, class U>
+void isEmpty(ft::map<T, U> &map)
+{
+    map.empty() ? std::cout << ROJO << "Map is empty" << RESET << std::endl : std::cout << GREEN << "Map is not empty." << RESET << std::endl ;
+}
+
+template <class T, class U>
+void printMapInfo(std::map<T, U> &map)
+{
+    isEmpty(map);
+    std::cout << "std::Map size: " << map.size() << '\n';
+    std::cout << "std::Map max_size: " << map.max_size() << '\n';
+}
+
+template <class T, class U>
+void printMapInfo(ft::map<T, U> &map)
+{
+    isEmpty(map);
+    std::cout << "std::Map size: " << map.size() << '\n';
+    std::cout << "std::Map max_size: " << map.max_size() << '\n';
+}
+
+template <class T, class U>
+void printMapValues(std::map<T, U> &map)
 {
     std::map<int, std::string>::iterator it;
     std::cout << CYAN << "std Map contains:\n" << RESET;
     for (it=map.begin(); it!=map.end(); ++it)
-    std::cout << it->first << " => " << it->second << '\n';
+        std::cout << it->first << " => " << it->second << '\n';
 }
 
 template <class T, class U>
-void printMap(ft::map<T, U> &map)
+void printMapValues(ft::map<T, U> &map)
 {
     ft::map<int, std::string>::iterator it;
     std::cout << CYAN << "ft Map contains:\n" << RESET;
     for (it=map.begin(); it!=map.end(); ++it)
-    std::cout << it->first << " => " << it->second << '\n';
+        std::cout << it->first << " => " << it->second << '\n';
 }
 
 void populateMap(std::map<int, std::string> &map, int seed)
 {
+    std::cout << std::endl;
+    std::cout << "Populating std::map..." << std::endl;
     for(int i = seed; i < seed + 10; i++)
         map.insert(std::make_pair(i, std::to_string(i)));
+    std::cout << std::endl;  
 }
 
 void populateMap(ft::map<int, std::string> &map, int seed)
 {
+    std::cout << std::endl;
+    std::cout << "Populating ft::map..." << std::endl;
     for(int i = seed; i < seed + 10; i++)
-        map.insert(ft::make_pair(i, std::to_string(i)));    
+        map.insert(ft::make_pair(i, std::to_string(i)));
+    std::cout << std::endl;  
 }
 
-/* void printMap(std::map<int, std::string> &map)
+/* void printMapInfo(std::map<int, std::string> &map)
 {
 
 } */
@@ -190,28 +227,39 @@ int main(int ac, char**av)
     populateMap(fmap, seed);
     sit = smap.begin();
     fit = fmap.begin();
-    printMap(smap);
-    printMap(fmap);
+    printMapValues(smap);
+    printMapValues(fmap);
+    std::cout << std::endl;
+
+    std::cout << MAGENTA << "CAPACITY" << RESET << std::endl;
+    printMapInfo(smap);
+    printMapInfo(fmap);
+
+    std::cout << std::endl;
+    std::cout << MAGENTA << "ELEMENT ACCESS" << RESET << std::endl;
+    std::cout << YELLOW << "operator[] (const key_type& k) - map[seed+3]"  RESET << std::endl;
+    std::cout << smap[seed+3] << std::endl;
+/*     std::cout << fmap[seed+3] << std::endl; */
     
     std::cout << std::endl;
     std::cout << MAGENTA << "MODIFIERS" << RESET << std::endl;
     std::cout << YELLOW << "insert(const value_type& val) - std::make_pair(x, 'fortytwo')"  RESET << std::endl;    
     smap.insert(std::make_pair(x, "fortytwo"));
     fmap.insert(ft::make_pair(x, "fortytwo"));
-    printMap(smap);
-    printMap(fmap);
+    printMapValues(smap);
+    printMapValues(fmap);
     std::cout << std::endl;
     std::cout << YELLOW << "erase(const key_type& k) - map.erase(seed + 2)" << RESET << std::endl;
     smap.erase(seed + 2);
     fmap.erase(seed + 2);
-    printMap(smap);
-    printMap(fmap);
+    printMapValues(smap);
+    printMapValues(fmap);
     std::cout << std::endl;
     std::cout << YELLOW << "erase(iterator position) - erase(map.begin());" << RESET << std::endl; 
     smap.erase(sit);
     fmap.erase(fit);
-    printMap(smap);
-    printMap(fmap);
+    printMapValues(smap);
+    printMapValues(fmap);
     std::cout << std::endl;
     std::cout << YELLOW << "erase(iterator first, iterator last) - erase(it -> 15 , it -> 17)" << RESET << std::endl;
     sit=smap.find(15);
@@ -220,14 +268,53 @@ int main(int ac, char**av)
     ft::map<int, std::string>::iterator fit2 = fmap.find(17);     
     smap.erase(sit, sit2);
     fmap.erase(fit, fit2);
-    printMap(smap);
-    printMap(fmap);
+    printMapValues(smap);
+    printMapValues(fmap);
+    std::cout << std::endl;
+    std::cout << YELLOW << "clear()" << RESET << std::endl;
+    smap.clear();
+    fmap.clear();
+    printMapInfo(smap);
+    printMapInfo(fmap);
+
+    populateMap(smap, seed);
+    populateMap(fmap, seed);
+    printMapValues(smap);
+    printMapValues(fmap);
 
     std::cout << std::endl;
     std::cout << MAGENTA << "OPERATIONS" << RESET << std::endl;    
-    std::cout << YELLOW << "find(const key_type& k) - map.find(seed + 3) - Returns iterator pointing that key" << RESET << std::endl;
+    std::cout << YELLOW << "find(const key_type& k) - map.find(seed + 3) - Returns an iterator pointing that key" << RESET << std::endl;
     sit = smap.find(seed + 3);
     fit = fmap.find(seed + 3);
     std::cout << CYAN << "STD MAP ITERATOR is now pointing to: " << sit->first << "=>" << sit->second << RESET << std::endl;
     std::cout << CYAN << "FT MAP ITERATOR is now pointing to: " << fit->first << "=>" << fit->second << RESET << std::endl;
+
+    std::cout << std::endl;
+    std::cout << YELLOW << "count (const key_type& k) - map.count(seed + 3) - Returns number of element with specific key" << RESET << std::endl;
+    std::cout <<"result: " CYAN << smap.count(seed + 2) << RESET << std::endl;
+    std::cout <<"result: " CYAN << fmap.count(seed + 2) << RESET << std::endl;
+
+    std::cout << std::endl;
+    std::cout << YELLOW << "lower_bound (const key_type& k) - map.lower_bound(seed + 3) - Returns iterator to the element with specific key" << RESET << std::endl;
+    std::cout <<"result: " CYAN << smap.lower_bound(seed + 3)->first << RESET << std::endl;
+    std::cout <<"result: " CYAN << fmap.lower_bound(seed + 3)->first << RESET << std::endl;
+
+    std::cout << std::endl;
+    std::cout << YELLOW << "upper_bound (const key_type& k) - map.upper_bound(seed + 3) - An iterator to the the first element in the container whose key is considered to go after k" << RESET << std::endl;
+    std::cout <<"result: " CYAN << smap.upper_bound(seed + 3)->first << RESET << std::endl;
+    std::cout <<"result: " CYAN << fmap.upper_bound(seed + 3)->first << RESET << std::endl;
+
+/*     std::cout << std::endl;
+    std::cout << YELLOW << "equal_range (const key_type& k) - map.equal_range(seed + 3) - The function returns a pair of map iterators" << RESET << std::endl;
+    std::pair<std::map<int, std::string>::iterator, std::map<int, std::string>::iterator> sRet = smap.equal_range(seed + 3);
+    ft::pair<ft::map<int, std::string>::iterator, std::map<int, std::string>::iterator> fRet = fmap.equal_range(seed + 3);
+    std::cout << "std lower_bound points to: ";
+    std::cout << sRet.first->first << " => " << sRet.first->second << '\n';
+    std::cout << "std upper_bound points to: ";
+    std::cout << sRet.second->first << " => " << sRet.second->second << '\n';
+    std::cout << "ft lower_bound points to: ";
+    std::cout << fRet.first->first << " => " << fRet.first->second << '\n';
+    std::cout << "ft upper_bound points to: ";
+    std::cout << fRet.second->first << " => " << fRet.second->second << '\n'; */
 }

@@ -590,14 +590,14 @@ class Tree {
 		}
 
 
-		pointer	Search(pointer t, typename Pair::first_type &target, pointer &last) const
+		pointer	Search(pointer t, typename Pair::first_type &target, pointer &last, bool flag = false) const
 		{
 			//salvo in last l'ultimo nodo confrontato (per ottimizzare insert)
 			if (!t->end) {
 				last = t;
 				if (less(target, t->_value.first) )
 					return Search(t->left, target, last);
-				if (less(t->_value.first, target) )
+				if (less(t->_value.first, target) || flag )
 					return Search(t->right, target, last);
 			}
 			
@@ -615,7 +615,7 @@ class Tree {
 
 		pointer upper_bound(const typename Pair::first_type &k){
 			pointer i;
-			Search(_root, k, i);
+			Search(_root, k, i, true);
 			while(!i->end && !less(k, i->_value.first) )
 				i = i->parent;
 
