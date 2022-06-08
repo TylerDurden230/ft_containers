@@ -238,8 +238,8 @@ int main(int ac, char**av)
     std::cout << std::endl;
     std::cout << MAGENTA << "ELEMENT ACCESS" << RESET << std::endl;
     std::cout << YELLOW << "operator[] (const key_type& k) - map[seed+3]"  RESET << std::endl;
-    std::cout << smap[seed+3] << std::endl;
-/*     std::cout << fmap[seed+3] << std::endl; */
+    std::cout << "result: " CYAN << smap[seed + 3] << RESET << std::endl;
+    std::cout << "result: " CYAN << fmap[seed + 3] << RESET << std::endl;
     
     std::cout << std::endl;
     std::cout << MAGENTA << "MODIFIERS" << RESET << std::endl;
@@ -305,16 +305,16 @@ int main(int ac, char**av)
     std::cout <<"result: " CYAN << smap.upper_bound(seed + 3)->first << RESET << std::endl;
     std::cout <<"result: " CYAN << fmap.upper_bound(seed + 3)->first << RESET << std::endl;
 
-/*     std::cout << std::endl;
+    std::cout << std::endl;
     std::cout << YELLOW << "equal_range (const key_type& k) - map.equal_range(seed + 3) - The function returns a pair of map iterators" << RESET << std::endl;
     std::pair<std::map<int, std::string>::iterator, std::map<int, std::string>::iterator> sRet = smap.equal_range(seed + 3);
-    ft::pair<ft::map<int, std::string>::iterator, std::map<int, std::string>::iterator> fRet = fmap.equal_range(seed + 3);
-    std::cout << "std lower_bound points to: ";
-    std::cout << sRet.first->first << " => " << sRet.first->second << '\n';
-    std::cout << "std upper_bound points to: ";
-    std::cout << sRet.second->first << " => " << sRet.second->second << '\n';
-    std::cout << "ft lower_bound points to: ";
-    std::cout << fRet.first->first << " => " << fRet.first->second << '\n';
-    std::cout << "ft upper_bound points to: ";
-    std::cout << fRet.second->first << " => " << fRet.second->second << '\n'; */
+    ft::pair<ft::map<int, std::string>::iterator, ft::map<int, std::string>::iterator> fRet = fmap.equal_range(seed + 3);
+    std::cout << "STD lower_bound points to: ";
+    std::cout << CYAN << sRet.first->first << " => " << sRet.first->second << RESET << '\n';
+    std::cout << "STD upper_bound points to: ";
+    std::cout << CYAN << sRet.second->first << " => " << sRet.second->second << RESET << '\n';
+    std::cout << "FT lower_bound points to: ";
+    std::cout << CYAN << fRet.first->first << " => "  << fRet.first->second << RESET << '\n';
+    std::cout << "FT upper_bound points to: ";
+    std::cout << CYAN << fRet.second->first << " => " << fRet.second->second << RESET << '\n';
 }
