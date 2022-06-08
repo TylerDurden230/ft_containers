@@ -270,6 +270,37 @@ int main(int ac, char**av)
     fmap.erase(fit, fit2);
     printMapValues(smap);
     printMapValues(fmap);
+
+    std::cout << std::endl;
+    std::cout << YELLOW << "swap(map& x)" << RESET << std::endl;
+    std::map<int, std::string> smap2;
+    populateMap(smap2, seed *2);
+    ft::map<int, std::string> fmap2;
+    populateMap(fmap2, seed *2);
+
+    std::cout << BLUE << "Original STD values" << RESET << std::endl;
+    std::cout << "smap: ";
+    printMapValues(smap);
+    std::cout << "smap2: ";
+    printMapValues(smap2);
+    smap.swap(smap2);
+    std::cout << BLUE << "Swapped STD values" << RESET << std::endl;
+    std::cout << "smap: ";
+    printMapValues(smap);
+    std::cout << "smap2: ";
+    printMapValues(smap2);
+    std::cout << BLUE << "Original FT values" << RESET << std::endl;
+    std::cout << "fmap: ";
+    printMapValues(fmap);
+    std::cout << "fmap2: ";
+    printMapValues(fmap2);
+    fmap.swap(fmap2);
+    std::cout << BLUE << "Swapped FT values" << RESET << std::endl;
+    std::cout << "fmap: ";
+    printMapValues(fmap);
+    std::cout << "fmap2: ";
+    printMapValues(fmap2);
+
     std::cout << std::endl;
     std::cout << YELLOW << "clear()" << RESET << std::endl;
     smap.clear();
