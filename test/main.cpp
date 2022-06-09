@@ -51,6 +51,21 @@ void print_vector(ft::vector<T> &vector)
     std::cout << "FT::Vector Capacity: " << CYAN << vector.capacity() << RESET << std::endl;
 }
 
+
+/* Stack */
+
+template <class T>
+void isEmpty(std::stack<T> &stack)
+{
+    stack.empty() ? std::cout << ROJO << "std::Stack is empty" << RESET << std::endl : std::cout << GREEN << "std::Stack is not empty." << RESET << std::endl ;
+}
+
+template <class T>
+void isEmpty(ft::stack<T> &stack)
+{
+    stack.empty() ? std::cout << ROJO << "ft::Stack is empty" << RESET << std::endl : std::cout << GREEN << "ft::Stack is not empty." << RESET << std::endl ;
+}
+
 /* --- Map -- */
 
 template <class T, class U>
@@ -138,7 +153,7 @@ int main(int ac, char**av)
     ft::vector<int> fv(x, x);
 
     std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
-	std::cout << "|                                          VECTOR                                           |" << std::endl;
+	std::cout << "|" << MAGENTA << "                                          VECTOR                                           " << RESET << "|" << std::endl;
 	std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
 
     std::cout << MAGENTA << "CAPACITY" << RESET << std::endl;
@@ -229,7 +244,7 @@ int main(int ac, char**av)
 
     emptyLine();
     std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
-	std::cout << "|                                          STACK                                            |" << std::endl;
+	std::cout << "|" << MAGENTA << "                                          STACK                                            " << RESET << "|" << std::endl;
 	std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
     emptyLine();
 
@@ -249,35 +264,48 @@ Remove top element (public member function ) */
     std::stack<int> sStack;
     ft::stack<int>  fStack;
 
+    std::cout << MAGENTA << "Costructor" << RESET <<  std::endl;
+    std::stack<int,std::vector<int> > sSuperStack (sv);     
+    ft::stack<int,ft::vector<int> > fSuperStack (fv);
+    sSuperStack.push(seed * 2 / (seed / 3));
+    fSuperStack.push(seed * 2 / (seed / 3));
+    std::cout << sSuperStack.top() << std::endl;
+    std::cout << fSuperStack.top() << std::endl;
 
+    isEmpty(sStack);
+    isEmpty(fStack);
+    std::cout << YELLOW << "push(const value_type& val)"  RESET << std::endl; 
     sStack.push(seed);
     fStack.push(seed);
+    std::cout << YELLOW << "top()"  RESET << std::endl; 
     std::cout << sStack.top() << std::endl;
     std::cout << fStack.top() << std::endl;
+    std::cout << YELLOW << "push(const value_type& val)"  RESET << std::endl; 
     sStack.push(seed+1);
     fStack.push(seed+1);
+    std::cout << YELLOW << "top()"  RESET << std::endl; 
     std::cout << sStack.top() << std::endl;
     std::cout << fStack.top() << std::endl;
-    std::cout << "std::stack size: " << sStack.size() << std::endl;
-    std::cout << "ft::stack size:  " << fStack.size() << std::endl;
-    std::cout << "std::stack empty: " << sStack.empty() << std::endl;
-    std::cout << "ft::stack empty:  " << fStack.empty() << std::endl;
+    std::cout << CYAN << "std::stack size: " << sStack.size() << RESET << std::endl;
+    std::cout << CYAN << "ft::stack size:  " << fStack.size() << RESET <<  std::endl;
+    isEmpty(sStack);
+    isEmpty(fStack);
+    std::cout << YELLOW << "pop()"  RESET << std::endl; 
     sStack.pop();
     fStack.pop();
+    std::cout << YELLOW << "top()"  RESET << std::endl; 
     std::cout << sStack.top() << std::endl;
     std::cout << fStack.top() << std::endl;
+    std::cout << YELLOW << "pop()"  RESET << std::endl; 
     sStack.pop();
     fStack.pop();
-    std::cout << "std::stack empty: " << sStack.empty() << std::endl;
-    std::cout << "ft::stack empty:  " << fStack.empty() << std::endl;
-
-
-
+    isEmpty(sStack);
+    isEmpty(fStack);
 
 
     emptyLine();
     std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
-	std::cout << "|                                          MAP                                              |" << std::endl;
+	std::cout << "|" << MAGENTA << "                                          MAP                                              " << RESET << "|" << std::endl;
 	std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
 
     std::map<int, std::string> smap;
