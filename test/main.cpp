@@ -18,28 +18,37 @@
 # define CYAN			"\033[36m"				/* Cyan */
 # define ROJO			"\033[31m"
 
+
+void emptyLine()
+{
+    std::cout << std::endl;
+}
+
+/* Vector */
 template <class T>
 void print_vector(std::vector<T> &vector)
 {
-    std::cout << "std Vector" << std::endl;
+    std::cout << std::endl;
+    std::cout << BLUE << "std::Vector" << RESET << std::endl;
     std::cout << "[ "; 
     for(size_t i = 0; i < vector.size(); i++)
         std::cout << GREEN << vector.at(i) << RESET << ", ";
     std::cout << ']' << std::endl;
-    std::cout << "std Vector size: " << vector.size() << std::endl;
-    std::cout << "std Vector capacity: " << vector.capacity() << std::endl;
+    std::cout << "STD::Vector Size: " << CYAN << vector.size() << RESET << std::endl;
+    std::cout << "STD::Vector Capacity: " << CYAN << vector.capacity() << RESET << std::endl;
 }
 
 template <class T>
 void print_vector(ft::vector<T> &vector)
 {
-    std::cout << "Ft Vector" << std::endl;
+    std::cout << std::endl;
+    std::cout << BLUE << "Ft::Vector" << RESET << std::endl;
     std::cout << "[ "; 
     for(size_t i = 0; i < vector.size(); i++)
         std::cout << GREEN << vector.at(i) << RESET << ", ";
     std::cout << ']' << std::endl;
-    std::cout << "ft Vector size: " << vector.size() << std::endl;
-    std::cout << "ft Vector capacity: "<< vector.capacity() << std::endl;
+    std::cout << "FT::Vector Size: " << CYAN << vector.size() << RESET << std::endl;
+    std::cout << "FT::Vector Capacity: " << CYAN << vector.capacity() << RESET << std::endl;
 }
 
 /* --- Map -- */
@@ -47,13 +56,13 @@ void print_vector(ft::vector<T> &vector)
 template <class T, class U>
 void isEmpty(std::map<T, U> &map)
 {
-    map.empty() ? std::cout << ROJO << "Map is empty" << RESET << std::endl : std::cout << GREEN << "Map is not empty." << RESET << std::endl ;
+    map.empty() ? std::cout << ROJO << "std::Map is empty" << RESET << std::endl : std::cout << GREEN << "std::Map is not empty." << RESET << std::endl ;
 }
 
 template <class T, class U>
 void isEmpty(ft::map<T, U> &map)
 {
-    map.empty() ? std::cout << ROJO << "Map is empty" << RESET << std::endl : std::cout << GREEN << "Map is not empty." << RESET << std::endl ;
+    map.empty() ? std::cout << ROJO << "ft::Map is empty" << RESET << std::endl : std::cout << GREEN << "ft::Map is not empty." << RESET << std::endl ;
 }
 
 template <class T, class U>
@@ -76,7 +85,7 @@ template <class T, class U>
 void printMapValues(std::map<T, U> &map)
 {
     std::map<int, std::string>::iterator it;
-    std::cout << CYAN << "std Map contains:\n" << RESET;
+    std::cout << CYAN << "std::Map contains:\n" << RESET;
     for (it=map.begin(); it!=map.end(); ++it)
         std::cout << it->first << " => " << it->second << '\n';
 }
@@ -85,7 +94,7 @@ template <class T, class U>
 void printMapValues(ft::map<T, U> &map)
 {
     ft::map<int, std::string>::iterator it;
-    std::cout << CYAN << "ft Map contains:\n" << RESET;
+    std::cout << CYAN << "ft::Map contains:\n" << RESET;
     for (it=map.begin(); it!=map.end(); ++it)
         std::cout << it->first << " => " << it->second << '\n';
 }
@@ -154,50 +163,62 @@ int main(int ac, char**av)
     
     std::cout << std::endl;
     std::cout << MAGENTA << "MODIFIERS" << RESET << std::endl;
-    std::cout << YELLOW << "assign(10, )"  RESET << std::endl;
+    std::cout << YELLOW << "assign(10, seed)"  RESET << std::endl;
     sv.assign(10, seed);
     fv.assign(10, seed);
     print_vector(sv);
     print_vector(fv);
+    emptyLine();
+
     std::cout << YELLOW << "push_back(1111)"  RESET << std::endl;
     sv.push_back(1111);
     fv.push_back(1111);
     print_vector(sv);
     print_vector(fv);
+    emptyLine();
+
     std::cout << YELLOW << "pop_back()"  RESET << std::endl;
     sv.pop_back();
     fv.pop_back();
     print_vector(sv);
     print_vector(fv);
+    emptyLine();
+
     std::cout << YELLOW << "clear()"  RESET << std::endl;
     fv.clear();
     sv.clear();
     std::cout << "Std size: " << sv.size() << std::endl;  std::cout << "Ft size: " << fv.size() << std::endl;
     std::cout << "Std capacity: " << sv.capacity() << std::endl;  std::cout << "Ft capacity: " << fv.capacity() << std::endl;
-    std::cout << YELLOW << "insert(vector.begin(), 10, " + std::to_string(seed+1) << ")" << RESET << std::endl;
+    emptyLine();
+
+    std::cout << YELLOW << "insert(vector.begin(), 10, seed + 1" + std::to_string(seed+1) << ")" << RESET << std::endl;
     sv.insert(sv.begin(), 10, seed + 1);
     fv.insert(fv.begin(), 10, seed + 1);
     print_vector(sv);
     print_vector(fv);
+    emptyLine();
+
     std::cout << YELLOW << "erase(vector.begin(), vector.begin()+ 3)"  RESET << std::endl;
     sv.erase(sv.begin(), sv.begin()+ 3);
     fv.erase(fv.begin(), fv.begin()+ 3);
     print_vector(sv);
     print_vector(fv);
 
-    std::cout << std::endl;
+    emptyLine();
     std::cout << MAGENTA << "ELEMENT ACCESS" << RESET << std::endl;
     std::cout << YELLOW << "operator[]"  RESET << std::endl;
-    std::cout << "std:vector[0]: " << sv[0] << std::endl;
-    std::cout << "ft:vector[0]: " << fv[0] << std::endl;
+    std::cout << "std:vector[0]: " << CYAN << sv[0] << RESET << std::endl;
+    std::cout << "ft:vector[0]: " << CYAN << fv[0] << RESET << std::endl;
     std::cout << YELLOW << "at()"  RESET << std::endl;
-    std::cout << "std:vector.at(): " << sv.at(0) << std::endl;
-    std::cout << "ft:vector.at(): " << fv.at(0) << std::endl;
+    std::cout << "std:vector.at(): " << CYAN << sv.at(0) << RESET << std::endl;
+    std::cout << "ft:vector.at(): " << CYAN << fv.at(0) << RESET << std::endl;
     std::cout << YELLOW << "front()"  RESET << std::endl;
-    std::cout << "std:vector.front(): " << sv.front() << std::endl;
-    std::cout << "ft:vector.front(): " << fv.front() << std::endl;
+    std::cout << "std:vector.front(): " << CYAN << sv.front() << RESET << std::endl;
+    std::cout << "ft:vector.front(): " << CYAN << fv.front() << RESET << std::endl;
+    emptyLine();
+
     std::cout << YELLOW << "back()"  RESET << std::endl;
-    std::cout << YELLOW << "a little push_back first...42"  RESET << std::endl;
+    std::cout << YELLOW << "a little push_back first...42"  RESET;
     sv.push_back(42);
     fv.push_back(42);
     print_vector(sv);
@@ -206,14 +227,55 @@ int main(int ac, char**av)
     std::cout << "ft:vector.back(): " << fv.back() << std::endl;
 
 
-    std::cout << std::endl;
+    emptyLine();
     std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
 	std::cout << "|                                          STACK                                            |" << std::endl;
 	std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
-    std::cout << std::endl;
+    emptyLine();
+
+/* (constructor)
+Construct stack (public member function )
+empty
+Test whether container is empty (public member function )
+size
+Return size (public member function )
+top
+Access next element (public member function )
+push
+Insert element (public member function )
+pop
+Remove top element (public member function ) */
+
+    std::stack<int> sStack;
+    ft::stack<int>  fStack;
 
 
-    std::cout << std::endl;
+    sStack.push(seed);
+    fStack.push(seed);
+    std::cout << sStack.top() << std::endl;
+    std::cout << fStack.top() << std::endl;
+    sStack.push(seed+1);
+    fStack.push(seed+1);
+    std::cout << sStack.top() << std::endl;
+    std::cout << fStack.top() << std::endl;
+    std::cout << "std::stack size: " << sStack.size() << std::endl;
+    std::cout << "ft::stack size:  " << fStack.size() << std::endl;
+    std::cout << "std::stack empty: " << sStack.empty() << std::endl;
+    std::cout << "ft::stack empty:  " << fStack.empty() << std::endl;
+    sStack.pop();
+    fStack.pop();
+    std::cout << sStack.top() << std::endl;
+    std::cout << fStack.top() << std::endl;
+    sStack.pop();
+    fStack.pop();
+    std::cout << "std::stack empty: " << sStack.empty() << std::endl;
+    std::cout << "ft::stack empty:  " << fStack.empty() << std::endl;
+
+
+
+
+
+    emptyLine();
     std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
 	std::cout << "|                                          MAP                                              |" << std::endl;
 	std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
@@ -229,19 +291,19 @@ int main(int ac, char**av)
     fit = fmap.begin();
     printMapValues(smap);
     printMapValues(fmap);
-    std::cout << std::endl;
+    emptyLine();
 
     std::cout << MAGENTA << "CAPACITY" << RESET << std::endl;
     printMapInfo(smap);
     printMapInfo(fmap);
 
-    std::cout << std::endl;
+    emptyLine();
     std::cout << MAGENTA << "ELEMENT ACCESS" << RESET << std::endl;
     std::cout << YELLOW << "operator[] (const key_type& k) - map[seed+3]"  RESET << std::endl;
     std::cout << "result: " CYAN << smap[seed + 3] << RESET << std::endl;
     std::cout << "result: " CYAN << fmap[seed + 3] << RESET << std::endl;
     
-    std::cout << std::endl;
+    emptyLine();
     std::cout << MAGENTA << "MODIFIERS" << RESET << std::endl;
     std::cout << YELLOW << "insert(const value_type& val) - std::make_pair(x, 'fortytwo')"  RESET << std::endl;    
     smap.insert(std::make_pair(x, "fortytwo"));
@@ -279,26 +341,26 @@ int main(int ac, char**av)
     populateMap(fmap2, seed *2);
 
     std::cout << BLUE << "Original STD values" << RESET << std::endl;
-    std::cout << "smap: ";
+    std::cout << YELLOW << "smap: " << RESET;
     printMapValues(smap);
-    std::cout << "smap2: ";
+    std::cout << YELLOW << "smap2: " << RESET;
     printMapValues(smap2);
     smap.swap(smap2);
     std::cout << BLUE << "Swapped STD values" << RESET << std::endl;
-    std::cout << "smap: ";
+    std::cout << YELLOW << "smap: " << RESET;
     printMapValues(smap);
-    std::cout << "smap2: ";
+    std::cout << YELLOW << "smap2: " << RESET;
     printMapValues(smap2);
     std::cout << BLUE << "Original FT values" << RESET << std::endl;
-    std::cout << "fmap: ";
+    std::cout << YELLOW << "fmap: " << RESET;
     printMapValues(fmap);
-    std::cout << "fmap2: ";
+    std::cout << YELLOW << "fmap2: " << RESET;
     printMapValues(fmap2);
     fmap.swap(fmap2);
     std::cout << BLUE << "Swapped FT values" << RESET << std::endl;
-    std::cout << "fmap: ";
+    std::cout << YELLOW << "fmap: " << RESET;
     printMapValues(fmap);
-    std::cout << "fmap2: ";
+    std::cout << YELLOW << "fmap2: " << RESET;
     printMapValues(fmap2);
 
     std::cout << std::endl;
