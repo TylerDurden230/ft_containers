@@ -267,8 +267,8 @@ Remove top element (public member function ) */
     std::cout << MAGENTA << "Costructor" << RESET <<  std::endl;
     std::stack<int,std::vector<int> > sSuperStack (sv);     
     ft::stack<int,ft::vector<int> > fSuperStack (fv);
-    sSuperStack.push(seed * 2 / (seed / 3));
-    fSuperStack.push(seed * 2 / (seed / 3));
+    sSuperStack.push(seed * 2);
+    fSuperStack.push(seed * 2);
     std::cout << sSuperStack.top() << std::endl;
     std::cout << fSuperStack.top() << std::endl;
 
